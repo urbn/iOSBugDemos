@@ -15,7 +15,6 @@
 		B77009AE2182073F00AB1313 /* LigatureLayoutBugUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77009AD2182073F00AB1313 /* LigatureLayoutBugUITests.swift */; };
 		B77009BC2182090D00AB1313 /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77009BB2182090D00AB1313 /* LabelCollectionViewCell.swift */; };
 		B77009BE21820B1600AB1313 /* LabelCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77009BD21820B1600AB1313 /* LabelCollectionView.swift */; };
-		B77009C0218236B100AB1313 /* Avenir LT 65 Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B77009BF218236B100AB1313 /* Avenir LT 65 Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +49,6 @@
 		B77009AF2182073F00AB1313 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B77009BB2182090D00AB1313 /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		B77009BD21820B1600AB1313 /* LabelCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionView.swift; sourceTree = "<group>"; };
-		B77009BF218236B100AB1313 /* Avenir LT 65 Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Avenir LT 65 Medium.ttf"; path = "../../../../Avenir LT 65 Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +104,6 @@
 				B77009BB2182090D00AB1313 /* LabelCollectionViewCell.swift */,
 				B77009BD21820B1600AB1313 /* LabelCollectionView.swift */,
 				B77009942182073F00AB1313 /* Assets.xcassets */,
-				B77009BF218236B100AB1313 /* Avenir LT 65 Medium.ttf */,
 				B77009962182073F00AB1313 /* LaunchScreen.storyboard */,
 				B77009992182073F00AB1313 /* Info.plist */,
 			);
@@ -237,7 +234,6 @@
 			files = (
 				B77009982182073F00AB1313 /* LaunchScreen.storyboard in Resources */,
 				B77009952182073F00AB1313 /* Assets.xcassets in Resources */,
-				B77009C0218236B100AB1313 /* Avenir LT 65 Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
