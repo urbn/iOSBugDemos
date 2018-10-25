@@ -18,6 +18,12 @@ class MainViewController: UIViewController {
         navigationItem.title = "Button Flow Layout Bug"
         view.backgroundColor = .white
         view.addSubview(cv)
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+        cv.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        cv.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        cv.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+
     }
 }
 

@@ -14,10 +14,9 @@ class LabelCollectionView: UIView {
     private var dataSource = ["Red", "Orange", "Yellow", "Green"]
     
     init() {
-        let spaceFromTop: CGFloat = 10
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 0.0
-        flowLayout.itemSize = CGSize(width: (UIScreen.main.bounds.width/2 - spaceFromTop), height: 100)
+        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 100)
         flowLayout.minimumInteritemSpacing = 12
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         flowLayout.scrollDirection = .horizontal
@@ -26,11 +25,10 @@ class LabelCollectionView: UIView {
         super.init(frame: .zero)
         
         collectionView.collectionViewLayout = flowLayout
-        collectionView.heightAnchor.constraint(equalToConstant: 40.0)
         collectionView.dataSource = self
         collectionView.register(LabelCollectionViewCell.self, forCellWithReuseIdentifier: "ButtonCell")
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = .blue
         addSubview(collectionView)
     }
     
