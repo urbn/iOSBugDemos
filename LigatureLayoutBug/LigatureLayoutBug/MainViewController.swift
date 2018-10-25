@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
         cv.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         cv.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         cv.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        cv.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }
 
