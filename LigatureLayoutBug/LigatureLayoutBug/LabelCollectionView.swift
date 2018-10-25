@@ -11,22 +11,18 @@ import UIKit
 class LabelCollectionView: UIView {
 
     private let collectionView: UICollectionView
-    //private var dataSource = ["One", "Two", "Three", "Four", "Five", "Six", "Seven"]
+    private var dataSource = ["One", "Two", "Three", "Four", "Five", "Six", "Seven"]
     //private var dataSource = ["78\"", "91\""]
-    private var dataSource = ["尺码过小", "尺码偏小", "尺码准确", "尺码偏大", "尺码过大"]
+    //private var dataSource = ["尺码过小", "尺码偏小", "尺码准确", "尺码偏大", "尺码过大"]
     
     init() {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = 5.0
+        flowLayout.minimumLineSpacing = 8.0 // WORK
+        //flowLayout.minimumLineSpacing = 0.0 // BROKE
+        flowLayout.minimumInteritemSpacing = 8.0
+        flowLayout.sectionInset = .zero
         flowLayout.scrollDirection = .horizontal
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         
-//        let flowLayout = UICollectionViewFlowLayout()
-//        flowLayout.minimumLineSpacing = 0.0
-//        flowLayout.minimumInteritemSpacing = 8.0
-//        flowLayout.sectionInset = .zero
-//        flowLayout.scrollDirection = .horizontal
-
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         super.init(frame: .zero)
         
