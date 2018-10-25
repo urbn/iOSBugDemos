@@ -16,13 +16,16 @@ final class LabelCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         contentView.backgroundColor = .green
-        label.textColor = .black
-        label.textAlignment = .center
-        
         contentView.addSubview(label)
+        
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        
+//        label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 18.0).isActive = true
+//        label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -18.0).isActive = true
+        
         label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
     }
@@ -32,6 +35,14 @@ final class LabelCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(with string: String){
-        label.text = string
+        guard let font = UIFont(name: "Avenir-Book", size: 11) else { return }
+        
+        let attrs: [NSAttributedStringKey: Any] = [
+            NSAttributedStringKey.font: font,
+            NSAttributedStringKey.foregroundColor: UIColor.black,
+            NSAttributedStringKey.kern: 0.6
+        ]
+        
+        label.attributedText = NSAttributedString(string: string, attributes: attrs)
     }
 }

@@ -11,19 +11,27 @@ import UIKit
 class LabelCollectionView: UIView {
 
     private let collectionView: UICollectionView
-    private var dataSource = ["Red", "Orange", "Yellow", "Green", "1", "2", "3", "4"]
+    //private var dataSource = ["One", "Two", "Three", "Four", "Five", "Six", "Seven"]
+    //private var dataSource = ["78\"", "91\""]
+    private var dataSource = ["尺码过小", "尺码偏小", "尺码准确", "尺码偏大", "尺码过大"]
     
     init() {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 5.0
-        flowLayout.itemSize = CGSize(width: 100, height: 100)
         flowLayout.scrollDirection = .horizontal
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        
+//        let flowLayout = UICollectionViewFlowLayout()
+//        flowLayout.minimumLineSpacing = 0.0
+//        flowLayout.minimumInteritemSpacing = 8.0
+//        flowLayout.sectionInset = .zero
+//        flowLayout.scrollDirection = .horizontal
 
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         super.init(frame: .zero)
         
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(LabelCollectionViewCell.self, forCellWithReuseIdentifier: "ButtonCell")
         collectionView.showsHorizontalScrollIndicator = true
         collectionView.isScrollEnabled = true
@@ -58,5 +66,18 @@ extension LabelCollectionView: UICollectionViewDataSource {
         cell.configureCell(with: label)
         
         return cell
+    }
+}
+
+extension LabelCollectionView: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let cell = LabelCollectionViewCell()
+        cell.configureCell(with: dataSource[indexPath.row])
+
+        let cellSize = cell.systemLayoutSizeFitting(CGSize(width: UILayoutFittingCompressedSize.width, height: 34.0), withHorizontalFittingPriority: .fittingSizeLevel, verticalFittingPriority: .defaultHigh)
+
+        return cellSize
     }
 }

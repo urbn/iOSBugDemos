@@ -23,6 +23,11 @@ class MainViewController: UIViewController {
         cv.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         cv.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         cv.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        for family in UIFont.familyNames.sorted() {
+            let names = UIFont.fontNames(forFamilyName: family)
+            print("Family: \(family) Font names: \(names)")
+        }
     }
 }
 
