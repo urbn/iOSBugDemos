@@ -10,16 +10,14 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    let buttonView = LabelCollectionView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        navigationItem.title = "Button Flow Layout Bug"
+        view.backgroundColor = .white
+        view.addSubview(buttonView)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
