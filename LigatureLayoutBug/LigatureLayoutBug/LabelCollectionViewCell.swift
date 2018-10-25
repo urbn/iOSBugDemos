@@ -30,4 +30,8 @@ final class LabelCollectionViewCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func configureCell(with string: String){
+        label.text = string
+    }
 }
