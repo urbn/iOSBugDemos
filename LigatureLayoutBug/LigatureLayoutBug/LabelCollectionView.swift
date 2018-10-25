@@ -11,17 +11,16 @@ import UIKit
 class LabelCollectionView: UIView {
 
     private let collectionView: UICollectionView
-    private var dataSource = ["Red", "Orange", "Yellow", "Green"]
+    private var dataSource = ["Red", "Orange", "Yellow", "Green", "Red", "Orange", "Yellow", "Green"]
     
     init() {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = 0.0
-        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 100)
-        flowLayout.minimumInteritemSpacing = 12
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        flowLayout.minimumLineSpacing = 5.0
+        flowLayout.itemSize = CGSize(width: 100, height: 100)
         flowLayout.scrollDirection = .horizontal
-        
-        self.collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: flowLayout)
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+
+        self.collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 150), collectionViewLayout: flowLayout)
         super.init(frame: .zero)
         
         collectionView.collectionViewLayout = flowLayout
@@ -39,6 +38,7 @@ class LabelCollectionView: UIView {
 
 //MARK: DataSource
 extension LabelCollectionView: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource.count
     }
