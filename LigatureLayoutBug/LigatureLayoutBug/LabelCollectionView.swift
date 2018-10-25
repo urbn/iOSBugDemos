@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class LabelCollectionView: UIView {
+class LabelCollectionView: UIView {
 
     private let collectionView: UICollectionView
     private var dataSource = ["Red", "Orange", "Yellow", "Green"]

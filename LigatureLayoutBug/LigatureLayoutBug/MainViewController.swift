@@ -10,14 +10,14 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    let view = LabelCollectionView()
+    let cv = LabelCollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Button Flow Layout Bug"
         view.backgroundColor = .white
-        view.addSubview(view)
+        view.addSubview(cv)
     }
 }
 
