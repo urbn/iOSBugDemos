@@ -39,5 +39,20 @@ final class LabelCollectionView: UIView {
     }
 }
 
-
+//MARK: DataSource
+extension LabelCollectionView: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCell", for: indexPath) as? LabelCollectionViewCell else { return UICollectionViewCell()}
+        
+        let label = dataSource[indexPath.row]
+        
+        cell.configureCell(with: label)
+        
+        return cell
+    }
 }
