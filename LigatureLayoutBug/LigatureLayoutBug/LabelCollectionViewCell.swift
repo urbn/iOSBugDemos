@@ -22,7 +22,6 @@ final class LabelCollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        
         label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 18.0).isActive = true
         label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -18.0).isActive = true
     }

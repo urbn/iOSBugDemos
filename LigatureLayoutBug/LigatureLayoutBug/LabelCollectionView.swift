@@ -17,9 +17,9 @@ class LabelCollectionView: UIView {
     
     init() {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = 2.0 // WORK
-        //flowLayout.minimumLineSpacing = 0.0 // BROKE
-        flowLayout.minimumInteritemSpacing = 0.0
+        flowLayout.minimumLineSpacing = 8.0 // WORKING
+        //flowLayout.minimumLineSpacing = 0.0 // BROKEN
+        flowLayout.minimumInteritemSpacing = 8.0
         flowLayout.sectionInset = .zero
         flowLayout.scrollDirection = .horizontal
         
@@ -29,12 +29,11 @@ class LabelCollectionView: UIView {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(LabelCollectionViewCell.self, forCellWithReuseIdentifier: "ButtonCell")
-        collectionView.showsHorizontalScrollIndicator = true
-        collectionView.isScrollEnabled = true
         collectionView.backgroundColor = .blue
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.heightAnchor.constraint(equalToConstant: flowLayout.itemSize.height).isActive = true
         addSubview(collectionView)
-        
+
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
@@ -73,7 +72,7 @@ extension LabelCollectionView: UICollectionViewDelegateFlowLayout {
         cell.configureCell(with: dataSource[indexPath.row])
 
         let cellSize = cell.systemLayoutSizeFitting(CGSize(width: UILayoutFittingCompressedSize.width, height: 34.0), withHorizontalFittingPriority: .fittingSizeLevel, verticalFittingPriority: .defaultHigh)
-
+        
         return cellSize
     }
 }
