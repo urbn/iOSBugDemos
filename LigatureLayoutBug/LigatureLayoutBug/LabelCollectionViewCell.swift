@@ -30,7 +30,7 @@ final class LabelCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureCell(with string: String){
+    func configureCell(with dataSource: String) {
         guard let font = UIFont(name: "Avenir-Book", size: 11) else { return }
         
         let attrs: [NSAttributedStringKey: Any] = [
@@ -39,6 +39,6 @@ final class LabelCollectionViewCell: UICollectionViewCell {
             NSAttributedStringKey.kern: 0.6
         ]
         
-        label.attributedText = NSAttributedString(string: string, attributes: attrs)
+        label.attributedText = NSAttributedString(string: dataSource, attributes: attrs)
     }
 }
