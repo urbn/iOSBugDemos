@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    private var englighDataSource = ["One", "Two", "Three", "Four", "Five", "Six", "Seven"]
+    private var englishDataSource = ["One", "Two", "Three", "Four", "Five", "Six", "Seven"]
     private var inchesDataSource = ["78\"", "91\""]
     private var chineseDataSource = ["尺码过小", "尺码偏小", "尺码准确", "尺码偏大", "尺码过大"]
     
@@ -23,24 +23,27 @@ class MainViewController: UIViewController {
         navigationItem.title = "Button Flow Layout Bug"
         view.backgroundColor = .white
         
+        //configureStackView()
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 20.0
         stackView.distribution = .fill
         
-        //collection view
         view.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20.0).isActive = true
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        //stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+       
         
+        //working cv
         let workingDescription = descriptionLabel(withText: "This is working... WRITE MORE STUFF HERE...")
-        let workingCollectionView = layoutView(withDataSource: englighDataSource, minimumLineSpacing: brokenMinimumLineSpacing)
-        stackView.addArrangedSubview(workingDescription)
+        let workingCollectionView = layoutView(withDataSource: englishDataSource, minimumLineSpacing: brokenMinimumLineSpacing)
+        
+                stackView.addArrangedSubview(workingDescription)
         stackView.addArrangedSubview(workingCollectionView)
         
+        //broken cv
         let brokenDescription = descriptionLabel(withText: "This is broken... WRITE MORE STUFF HERE...")
         let brokenInchesCollectionView = layoutView(withDataSource: inchesDataSource, minimumLineSpacing: brokenMinimumLineSpacing)
         let brokenChineseCollectionView = layoutView(withDataSource: chineseDataSource, minimumLineSpacing: brokenMinimumLineSpacing)
@@ -48,6 +51,7 @@ class MainViewController: UIViewController {
         stackView.addArrangedSubview(brokenInchesCollectionView)
         stackView.addArrangedSubview(brokenChineseCollectionView)
 
+        //fixed cv
         let fixedDescription = descriptionLabel(withText: "This is fixed... WRITE MORE STUFF HERE...")
         let fixedInchesCollectionView = layoutView(withDataSource: inchesDataSource, minimumLineSpacing: workingMinimumLineSpacing)
         let fixedChineseCollectionView = layoutView(withDataSource: chineseDataSource, minimumLineSpacing: workingMinimumLineSpacing)
@@ -57,6 +61,27 @@ class MainViewController: UIViewController {
     }
     
     // MARK: Layout Convenience
+    private func configureStackView() {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 20.0
+        stackView.distribution = .fill
+        
+        view.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20.0).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
+//
+//    private func addsubViews(into arr: [UIView]) -> UIView {
+//        var array: [UIView] = []
+//        for view in arr {
+//
+//        }
+//        return views
+//    }
+    
     private func descriptionLabel(withText text: String) -> UILabel {
         let label = UILabel()
         label.text = text
