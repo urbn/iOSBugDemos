@@ -34,9 +34,12 @@ class LayoutView: UIView {
         addSubview(collectionView)
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: self.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
     }
     
     required init?(coder aDecoder: NSCoder) {

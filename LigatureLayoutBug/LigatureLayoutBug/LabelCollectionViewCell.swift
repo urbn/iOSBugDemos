@@ -11,6 +11,7 @@ import UIKit
 final class LabelCollectionViewCell: UICollectionViewCell {
     
     var label = UILabel()
+    let marginOffset: CGFloat = 18.0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,10 +21,13 @@ final class LabelCollectionViewCell: UICollectionViewCell {
         
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 18.0).isActive = true
-        label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -18.0).isActive = true
+
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: contentView.topAnchor),
+            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: marginOffset),
+            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -marginOffset)
+        ])
     }
     
     required init?(coder aDecoder: NSCoder) {

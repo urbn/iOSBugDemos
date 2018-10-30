@@ -30,16 +30,18 @@ class MainViewController: UIViewController {
         
         view.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20.0).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-       
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20.0),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            ])
         
         //working collection view
         let workingDescription = descriptionLabel(withText: "This is working... WRITE MORE STUFF HERE...")
         let workingCollectionView = layoutView(withDataSource: englishDataSource, minimumLineSpacing: brokenMinimumLineSpacing)
         
-                stackView.addArrangedSubview(workingDescription)
+        stackView.addArrangedSubview(workingDescription)
         stackView.addArrangedSubview(workingCollectionView)
         
         //broken collection view
@@ -49,7 +51,7 @@ class MainViewController: UIViewController {
         stackView.addArrangedSubview(brokenDescription)
         stackView.addArrangedSubview(brokenInchesCollectionView)
         stackView.addArrangedSubview(brokenChineseCollectionView)
-
+        
         //fixed collection view
         let fixedDescription = descriptionLabel(withText: "This is fixed... WRITE MORE STUFF HERE...")
         let fixedInchesCollectionView = layoutView(withDataSource: inchesDataSource, minimumLineSpacing: workingMinimumLineSpacing)
@@ -64,6 +66,7 @@ class MainViewController: UIViewController {
         let label = UILabel()
         label.text = text
         label.textColor = .black
+        label.numberOfLines = 0
         
         return label
     }
