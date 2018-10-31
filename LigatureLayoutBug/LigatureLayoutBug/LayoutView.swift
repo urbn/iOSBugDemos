@@ -16,15 +16,15 @@ class LayoutView: UIView {
     init(with dataSource: [String], minimumLineSpacing: CGFloat) {
         
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = minimumLineSpacing
-        flowLayout.minimumInteritemSpacing = 8.0
+        flowLayout.minimumLineSpacing = minimumLineSpacing //between items in the same grid
+        flowLayout.minimumInteritemSpacing = 8.0 //between items in the same row
         flowLayout.sectionInset = .zero
         flowLayout.scrollDirection = .horizontal
         
         self.dataSource = dataSource
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         super.init(frame: .zero)
-
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(LabelCollectionViewCell.self, forCellWithReuseIdentifier: "ButtonCell")
@@ -39,7 +39,7 @@ class LayoutView: UIView {
             collectionView.topAnchor.constraint(equalTo: self.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        ])
+            ])
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -64,6 +64,7 @@ extension LayoutView: UICollectionViewDataSource {
     }
 }
 
+//MARK: FlowLayout
 extension LayoutView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
