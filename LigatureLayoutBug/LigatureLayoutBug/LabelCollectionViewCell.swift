@@ -10,7 +10,7 @@ import UIKit
 
 final class LabelCollectionViewCell: UICollectionViewCell {
     
-    private var label = UILabel()
+    private let label = UILabel()
     private let marginOffset: CGFloat = 18.0
     
     override init(frame: CGRect) {
@@ -27,7 +27,7 @@ final class LabelCollectionViewCell: UICollectionViewCell {
             label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: marginOffset),
             label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -marginOffset)
-            ])
+        ])
     }
     
     required init?(coder aDecoder: NSCoder) {

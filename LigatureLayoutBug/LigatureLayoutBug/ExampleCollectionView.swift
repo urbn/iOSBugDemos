@@ -1,19 +1,18 @@
 //
-//  LayoutView.swift
+//  ExamplesView.swift
 //  LigatureLayoutBug
 //
-//  Created by Nicole Souvenir on 10/25/18.
+//  Created by Nicole Souvenir on 10/31/18.
 //  Copyright © 2018 Nicole Souvenir. All rights reserved.
 //
 
 import UIKit
 
-class LayoutView: UIView {
+class ExampleCollectionView: UICollectionView {
     
-    private let collectionView: UICollectionView
-    private let dataSource: [String]
+    let dataObject: [String]
     
-    init(with dataSource: [String], minimumLineSpacing: CGFloat) {
+    init(withDataObject dataObject: [String], minimumLineSpacing: CGFloat) {
         
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = minimumLineSpacing //between items in the same grid
@@ -21,60 +20,57 @@ class LayoutView: UIView {
         flowLayout.sectionInset = .zero
         flowLayout.scrollDirection = .horizontal
         
-        self.dataSource = dataSource
-        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        super.init(frame: .zero)
+        self.dataObject = dataObject
+        super.init(frame: .zero, collectionViewLayout: flowLayout) //must have designated initializer
         
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(LabelCollectionViewCell.self, forCellWithReuseIdentifier: "ButtonCell")
-        collectionView.backgroundColor = .blue
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.heightAnchor.constraint(equalToConstant: flowLayout.itemSize.height).isActive = true
-        addSubview(collectionView)
-        
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        self.dataSource = self
+        self.delegate = self
+        self.register(LabelCollectionViewCell.self, forCellWithReuseIdentifier: "ButtonCell")
+        self.backgroundColor = .blue
+        self.showsHorizontalScrollIndicator = false
+
+        self.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: self.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+            self.heightAnchor.constraint(equalToConstant: flowLayout.itemSize.height),
+            self.topAnchor.constraint(equalTo: self.topAnchor),
+            self.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.trailingAnchor.constraint(equalTo: self.trailingAnchor)
             ])
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implement ed")
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
 //MARK: DataSource Methods
-extension LayoutView: UICollectionViewDataSource {
-    
+extension ExampleCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.count
+        return dataObject.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCell", for: indexPath) as? LabelCollectionViewCell else { return UICollectionViewCell()}
         
-        let label = dataSource[indexPath.row]
+        let label = dataObject[indexPath.row]
         cell.configureCell(with: label)
         
         return cell
     }
 }
 
-//MARK: FlowLayout
-extension LayoutView: UICollectionViewDelegateFlowLayout {
-    
+//MARK: FlowLayout Delegate
+extension ExampleCollectionView: UICollectionViewDelegateFlowLayout {
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+
         let cell = LabelCollectionViewCell()
         
-        cell.configureCell(with: dataSource[indexPath.row])
-        
+        cell.configureCell(with: dataObject[indexPath.row])
+
         let cellSize = cell.systemLayoutSizeFitting(CGSize(width: UILayoutFittingCompressedSize.width, height: 44.0), withHorizontalFittingPriority: .fittingSizeLevel, verticalFittingPriority: .defaultHigh)
-        
+
         return cellSize
     }
 }
