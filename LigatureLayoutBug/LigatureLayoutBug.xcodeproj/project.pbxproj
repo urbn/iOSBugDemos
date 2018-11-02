@@ -15,7 +15,6 @@
 		B77009A32182073F00AB1313 /* LigatureLayoutBugTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77009A22182073F00AB1313 /* LigatureLayoutBugTests.swift */; };
 		B77009AE2182073F00AB1313 /* LigatureLayoutBugUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77009AD2182073F00AB1313 /* LigatureLayoutBugUITests.swift */; };
 		B77009BC2182090D00AB1313 /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77009BB2182090D00AB1313 /* LabelCollectionViewCell.swift */; };
-		B77009BE21820B1600AB1313 /* ExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77009BD21820B1600AB1313 /* ExampleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +49,6 @@
 		B77009AD2182073F00AB1313 /* LigatureLayoutBugUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LigatureLayoutBugUITests.swift; sourceTree = "<group>"; };
 		B77009AF2182073F00AB1313 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B77009BB2182090D00AB1313 /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
-		B77009BD21820B1600AB1313 /* ExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +102,6 @@
 				B770098D2182073E00AB1313 /* AppDelegate.swift */,
 				B770098F2182073E00AB1313 /* MainViewController.swift */,
 				B77009BB2182090D00AB1313 /* LabelCollectionViewCell.swift */,
-				B77009BD21820B1600AB1313 /* ExampleView.swift */,
 				B752464F218A327B0063F422 /* ExampleCollectionView.swift */,
 				B77009942182073F00AB1313 /* Assets.xcassets */,
 				B77009962182073F00AB1313 /* LaunchScreen.storyboard */,
@@ -265,7 +262,6 @@
 				B7524650218A327B0063F422 /* ExampleCollectionView.swift in Sources */,
 				B77009902182073E00AB1313 /* MainViewController.swift in Sources */,
 				B770098E2182073E00AB1313 /* AppDelegate.swift in Sources */,
-				B77009BE21820B1600AB1313 /* ExampleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

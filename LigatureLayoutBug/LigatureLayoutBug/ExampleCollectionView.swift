@@ -30,13 +30,7 @@ class ExampleCollectionView: UICollectionView {
         self.showsHorizontalScrollIndicator = false
 
         self.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: flowLayout.itemSize.height),
-            self.topAnchor.constraint(equalTo: self.topAnchor),
-            self.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-            ])
+        self.heightAnchor.constraint(equalToConstant: flowLayout.itemSize.height).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
