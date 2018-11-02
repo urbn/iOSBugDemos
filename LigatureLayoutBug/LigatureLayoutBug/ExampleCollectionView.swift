@@ -23,14 +23,14 @@ class ExampleCollectionView: UICollectionView {
         self.dataObject = dataObject
         super.init(frame: .zero, collectionViewLayout: flowLayout) //must have designated initializer
         
-        self.dataSource = self
-        self.delegate = self
-        self.register(LabelCollectionViewCell.self, forCellWithReuseIdentifier: "ButtonCell")
-        self.backgroundColor = .blue
-        self.showsHorizontalScrollIndicator = false
+        dataSource = self
+        delegate = self
+        register(LabelCollectionViewCell.self, forCellWithReuseIdentifier: "ButtonCell")
+        backgroundColor = .blue
+        showsHorizontalScrollIndicator = false
 
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.heightAnchor.constraint(equalToConstant: flowLayout.itemSize.height).isActive = true
+        translatesAutoresizingMaskIntoConstraints = false
+        heightAnchor.constraint(equalToConstant: flowLayout.itemSize.height).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
